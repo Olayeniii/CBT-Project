@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result - CBT Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            color: #2c3e50;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 12px 40px;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .result-wrapper {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result-wrapper h1 {
+            margin-bottom: 20px;
+        }
+
+        .score {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+
+        .percentage {
+            font-size: 22px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            background-color: #ecf0f1;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Gaia National Institute of Technology</h2>
+        <div>Student Portal</div>
+    </header>
+
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="selectcourse.html">Select Course</a>
+        <a href="#">Results</a>
+        <a href="#">Profile</a>
+        <a href="#">Logout</a>
+    </nav>
+
+    <div class="result-wrapper">
+        <h1>Exam Result</h1>
+        <div id="result"></div>
+    </div>
+
+    <footer>
+        &copy; 2025 Gaia Institute of Technology. All rights reserved.
+    </footer>
+
+    <script>
+        class ExamResultPage {
+            constructor() {
+                this.resultContainer = document.getElementById('result');
+                this.parseUrlParams();
+                this.displayResult();
+            }
+
+            parseUrlParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                this.score = parseInt(urlParams.get('score'));
+                this.totalQuestions = parseInt(urlParams.get('totalQuestions'));
+            }
+
+            calculatePercentage() {
+                return ((this.score / this.totalQuestions) * 100).toFixed(2);
+            }
+
+            displayResult() {
+                const percentage = this.calculatePercentage();
+                this.resultContainer.innerHTML = `
+                    <div class="score">You scored ${this.score} / ${this.totalQuestions}</div>
+                    <div class="percentage">Percentage: ${percentage}%</div>
+                `;
+            }
+        }
+
+        const examResultPage = new ExamResultPage();
+    </script>
+</body>
+</html>
