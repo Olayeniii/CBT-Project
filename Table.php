@@ -51,7 +51,7 @@ class DatabaseUpdate extends DatabaseConnect {
 }
 
 // Initialize the connection
-$db = new DatabaseUpdate('localhost', 'your_database_name', 'your_password', 'your_database_user');
+$db = new DatabaseUpdate('localhost', 'Ifeolayeni', 'Iyanuoluwa', 'test');
 
 // Run the table creation/updating
 $db->createOrUpdateTables();

@@ -6,7 +6,7 @@ class DatabaseConnect {
     protected $database;
     protected $connection;
 
-    public function __construct($host, $database, $password, $username) {
+    public function __construct($host, $username, $password, $database) {
         $this->host = $host;
         $this->username = $username;
         $this->password = $password;
