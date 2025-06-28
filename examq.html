@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Examiner Module</title>
   <link rel="stylesheet" href="examq.css">
-  <script src = "jquery-2.1.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1>Enter Course Questions</h1>
-    <textarea id="questionInput" placeholder="Enter your question here..."></textarea>
-    <input type="text" id="courseInput" placeholder="Course Name">
-    <input type="text" id="option1" placeholder="A">
-    <input type="text" id="option2" placeholder="B">
-    <input type="text" id="option3" placeholder="C">
-    <input type="text" id="option4" placeholder="D">
-    <select id="correctAnswerInput">
-      <option value="A">A</option>
-      <option value="B">B</option>
-      <option value="C">C</option>
-      <option value="D">D</option>
-    </select>
-    <button id="addQuestionBtn" type="button">Add Question</button>
+  <div id="container">
+    <div class="container">
+      <h1><i class="fas fa-question-circle"></i> Create Exam Questions</h1>
+
+      <form id="questionForm">
+        <div class="form-group">
+          <label for="courseInput"><i class="fas fa-book"></i> Course Name</label>
+          <input type="text" id="courseInput" placeholder="e.g., Mathematics 101">
+        </div>
+
+        <div class="form-group">
+          <label for="questionInput"><i class="fas fa-question"></i> Question</label>
+          <textarea id="questionInput" placeholder="Enter your question here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fas fa-list-ol"></i> Options</label>
+          <input type="text" id="option1" placeholder="Option A">
+          <input type="text" id="option2" placeholder="Option B">
+          <input type="text" id="option3" placeholder="Option C">
+          <input type="text" id="option4" placeholder="Option D">
+        </div>
+
+        <div class="form-group">
+          <label for="correctAnswerInput"><i class="fas fa-check-circle"></i> Correct Answer</label>
+          <select id="correctAnswerInput">
+            <option value="">Select correct option</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </div>
+
+        <button id="addQuestionBtn" type="button">
+          <i class="fas fa-plus-circle"></i> Add Question
+        </button>
+      </form>
+    </div>
   </div>
 
-  <script  src="examiner.js"></script>
- 
+  <script src="examiner.js"></script>
 </body>
+
 </html>

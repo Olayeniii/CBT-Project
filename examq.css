@@ -1,42 +1,181 @@
+/* examq.css */
+:root {
+  --primary: #6F36BC;
+  --secondary: #FF4778;
+  --dark: #36174D;
+  --light: #F3EFFE;
+  --success: #4CAF50;
+  --error: #F44336;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--dark) 0%, #4a2a7a 100%);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--light);
+}
+
+#container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
 
 .container {
-    max-width: 400px; 
-    margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h1 {
+  color: var(--secondary);
+  text-align: center;
+  margin-top: 0;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--light);
+}
+
+textarea,
+input[type="text"],
+select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(243, 239, 254, 0.9);
+  color: var(--dark);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2336174D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(111, 54, 188, 0.3);
+  background-color: white;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--secondary) 0%, #ff2e63 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 120, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 120, 0.4);
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.notification {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.success {
+  background-color: var(--success);
+  color: white;
+}
+
+.error {
+  background-color: var(--error);
+  color: white;
+}
+
+.error-border {
+  border: 2px solid var(--error) !important;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
     padding: 20px;
-    background-color: #36174D;
-    color: #F3EFFE;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   h1 {
-    color: #FF4778; 
+    font-size: 1.8rem;
   }
-  
-  textarea,
-  input[type="text"],
-  select {
-    width: calc(100% - 22px); 
-    margin-bottom: 10px; 
-    padding: 8px;
-    border: 1px solid #6F36BC;
-    border-radius: 4px;
-    background-color: #F3EFFE;
-    color: #36174D;
-  }
-  
-  /* Button styles */
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #FF4778;
-    color: #F3EFFE;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #36174D;
-  }
-  
+}
